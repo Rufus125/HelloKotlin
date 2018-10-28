@@ -20,8 +20,8 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.DisplayMetrics
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         button1.setOnClickListener {
-            toast("You wrote: ${editText1.text}")
+            Toast.makeText(this, "You wrote: ${editText1.text}", Toast.LENGTH_LONG).show()
         }
     }
 
