@@ -15,13 +15,11 @@
  */
 package es.voghdev.hellokotlin
 
-import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.DisplayMetrics
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.Button
+import android.widget.EditText
+import android.view.View.OnClickListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,20 +27,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button1.setOnClickListener {
+        val button1: Button =  findViewById(R.id.button1)
+        val editText1: EditText = findViewById(R.id.editText1)
+
+        button1.setOnClickListener(object: OnClickListener {
             Toast.makeText(this, "You wrote: ${editText1.text}", Toast.LENGTH_LONG).show()
-        }
-    }
-
-    fun Context.screenWidth(): Int {
-        val displayMetrics: DisplayMetrics = DisplayMetrics()
-        (this as Activity).windowManager.defaultDisplay.getMetrics(displayMetrics)
-        return displayMetrics.widthPixels
-    }
-
-    fun Context.screenHeight(): Int {
-        val displayMetrics: DisplayMetrics = DisplayMetrics()
-        (this as Activity).windowManager.defaultDisplay.getMetrics(displayMetrics)
-        return displayMetrics.heightPixels
+        })
     }
 }
